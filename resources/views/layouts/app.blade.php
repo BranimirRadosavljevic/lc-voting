@@ -23,25 +23,24 @@
         <a href="#"><img src="{{ asset('img/logo.svg')}}" alt="logo"></a>
         <div class="flex items-center">
             @if (Route::has('login'))
-                <div class="px-6 py-4">
-                    @auth
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
+            <div class="px-6 py-4">
+                @auth
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
 
-                            <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
-                            </a>
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+                        {{ __('Log out') }}
+                    </a>
+                </form>
+                @else
+                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                    @endif
-                    @endauth
-                </div>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                @endif
+                @endauth
+            </div>
             @endif
             <a href="#">
                 <img src="https://www.gravatar.com/avatar/0000000000000000000000000000000?d=mp" alt="avatar"
@@ -49,6 +48,32 @@
             </a>
         </div>
     </header>
+
+    <main class="container mx-auto max-w-custom flex">
+        <div class="w-70 mr-5">
+            Add idea form goes here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, itaque
+            quibusdam tenetur harum ratione facilis pariatur quisquam vel ab veniam cumque ad, rem ipsa expedita
+            officiis culpa facere ullam iste laboriosam obcaecati! Tempore quis quidem totam pariatur assumenda et
+            repudiandae?
+        </div>
+        <div class="w-175">
+            <nav class="flex items-center justify-between text-xs">
+                <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                    <li><a href="#" class="border-b-4 pb-3 border-blue">All Ideas (87)</a></li>
+                    <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Considering (6)</a></li>
+                    <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">In Progress (1)</a></li>
+                </ul>
+                <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                    <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Implemented (10)</a></li>
+                    <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Closed (55)</a></li>
+                </ul>
+            </nav>
+
+            <div class="mt-8">
+                {{ $slot }}
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
