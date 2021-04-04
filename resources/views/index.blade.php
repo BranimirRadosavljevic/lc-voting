@@ -96,7 +96,7 @@
                     <div class="text-gray-500">Votes</div>
                 </div>
                 <div class="mt-8">
-                    <button class="w-20 bg-blue border border-blue hover:border-gray-400 
+                    <button class="w-20 bg-blue border border-blue hover:blue-hover 
                     font-bold text-xxs text-white uppercase rounded-xl transition duration-150 ease-in px-4 py-3 ">Voted</button>
                 </div>
             </div>
