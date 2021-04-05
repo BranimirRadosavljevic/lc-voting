@@ -39,25 +39,19 @@
                     font-bold text-xxs uppercase rounded-xl transition duration-150 ease-in px-4 py-3 ">Vote</button>
                 </div>
             </div>
-            <div class="flex px-2 py-6">
-                <a href="#" class="flex-none">
-                    <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar"
-                        class="w-14 h-14 rounded-xl">
-                </a>
-                <div class="mx-4">
+            <div class="flex flex-1 px-2 py-6">
+                <div class="flex-none">
+                    <a href="#">
+                        <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar"
+                            class="w-14 h-14 rounded-xl">
+                    </a>
+                </div>
+                <div class="w-full mx-4">
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">A random title can go here</a>
                     </h4>
                     <div class="text-gray600 mt-3 line-clamp-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nostrum perferendis, nobis quia
-                        aperiam quidem earum hic. Repellendus explicabo, repudiandae minima rem reprehenderit error
-                        eligendi laborum corporis placeat numquam ut et! Iste enim, impedit ipsa esse vel adipisci odit
-                        distinctio eius! Quibusdam enim asperiores eaque consequuntur, similique quidem aspernatur! Odit
-                        cumque, perferendis iste, voluptates alias, eius illo totam velit consectetur non nisi nemo
-                        minus debitis recusandae. Optio iste illum nemo omnis molestias cupiditate itaque rem maiores,
-                        ipsum quos eaque dolores earum doloremque. Blanditiis possimus enim accusamus quasi ullam
-                        placeat, quibusdam, suscipit praesentium perspiciatis animi sit architecto doloribus natus fuga.
-                        Tempore?
+                        Lorem ipsum dolor sit amet consectetur
                     </div>
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
@@ -73,7 +67,7 @@
                                 Open
                             </div>
                             <button
-                                class="relative bg-gray-100 hover:bg-gray-200 rounded-full h-7 transition duration-150 ease-in py-2 px-3">
+                                class="relative bg-gray-100 hover:bg-gray-200 border rounded-full h-7 transition duration-150 ease-in py-2 px-3">
                                 <svg fill="currentColor" width="24" height="6">
                                     <path
                                         d="M2.97.061A2.969 2.969 0 000 3.031 2.968 2.968 0 002.97 6a2.97 2.97 0 100-5.94zm9.184 0a2.97 2.97 0 100 5.939 2.97 2.97 0 100-5.939zm8.877 0a2.97 2.97 0 10-.003 5.94A2.97 2.97 0 0021.03.06z"
