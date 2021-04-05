@@ -52,9 +52,9 @@
     <main class="container mx-auto max-w-custom flex">
         <div class="w-70 mr-5">
             <div class="bg-white border-2 border-blue rounded-xl mt-16" style="
-                 border-image-source: linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
+                 border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
                  border-image-slice: 1;
-                 background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(266deg, #21c8f6 98%, #637bff -52%);
+                 background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
                  background-origin: border-box;
                  background-clip: content-box, border-box;
              }">
@@ -93,7 +93,7 @@
                             <span class="ml-1">Attach</span>
                         </button>
                         <button type="submit" class="flex items-center justify-center w-1/2 h-11 text-xs bg-blue text-white font-semibold rounded-xl 
-                            border border-blue hover:blue-hover transition duration-150 ease-in px-6 py-3 ">
+                            border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3 ">
                             <span class="ml-1">Submit</span>
                         </button>
                     </div>
