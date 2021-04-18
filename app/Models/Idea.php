@@ -12,6 +12,8 @@ class Idea extends Model
 
     protected $guarded = [];
 
+    const PAGINATION_COUNT = 10;
+
     /**
      * Return the sluggable configuration array for this model.
      *
@@ -39,6 +41,11 @@ class Idea extends Model
     public function status()
     {
         return $this->belongsTo(Status::class);
+    }
+
+    public function votes()
+    {
+        return $this->belongsToMany(User::class, 'votes');
     }
 
     // public function getStatusClasses()
