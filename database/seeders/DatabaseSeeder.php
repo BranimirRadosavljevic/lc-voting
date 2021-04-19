@@ -8,6 +8,7 @@ use App\Models\Status;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Bane',
             'email' => 'rbranimir@ymail.com',
-
+            'password' => Hash::make('brambo1981'),
         ]);
 
         User::factory(19)->create();
