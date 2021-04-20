@@ -201,16 +201,20 @@
                     <div class="text-gray-400 text-xs leading-none">Votes</div>
                 </div>
                 @if ($hasVoted)
-                    <button type="button"
+                    <button
+                        wire:click.prevent="vote"
+                        type="button"
                         class="w-32 h-11 text-xs bg-blue font-semibold text-white rounded-xl uppercase
-                                        border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3 ">
+                        border border-blue hover:bg-blue-hover transition duration-150 ease-in px-6 py-3 ">
                         <span>Voted</span>
                     </button>
             
                 @else
-                    <button type="button"
+                    <button
+                        wire:click.prevent="vote"             
+                        type="button"
                         class="w-32 h-11 text-xs bg-gray-200 font-semibold rounded-xl uppercase
-                                        border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 ">
+                        border border-gray-200 hover:border-gray-400 transition duration-150 ease-in px-6 py-3 ">
                         <span>Vote</span>
                     </button>
                 @endif
