@@ -25,11 +25,19 @@ class IdeaShow extends Component
         }
 
         if ($this->hasVoted){
-            $this->idea->removeVote(auth()->user());
+            try{
+                $this->idea->removeVote(auth()->user());
+            } catch (VoteNotFoundException $e){
+                // do nothing
+            }
             $this->votesCount--;
             $this->hasVoted = false;
         } else {
-            $this->idea->Vote(auth()->user());
+            try{
+                $this->idea->Vote(auth()->user());
+            } catch (DuplicateVoteException $e){
+                // do nothing
+            }
             $this->votesCount++;
             $this->hasVoted = true;
         }
