@@ -19,7 +19,7 @@
                         <div class="hidden md:block">&bull;</div>
                         <div>{{ $idea->created_at->diffForHumans()}}</div>
                         <div>&bull;</div>
-                        <div>Category 1</div>
+                        <div>{{$idea->category->name}}</div>
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
@@ -40,31 +40,33 @@
                             <ul x-cloak x-show.transition.origin.top.left="isOpen" @click.away="isOpen=false"
                                 @keydown.escape.window="isOpen=false" class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3                                md:ml-8
                                                 md:top-top-86 right-0 md:left-0">
+                                @can('update', $idea)                                    
                                 <li><a 
-                                        href="#"
-                                        @click="
-                                            isOpen = false
-                                            $dispatch('custom-show-edit-modal')
-                                        "
-                                        class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
+                                    href="#"
+                                    @click="
+                                    isOpen = false
+                                    $dispatch('custom-show-edit-modal')
+                                    "
+                                    class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3"
                                     >
-                                        Edit Idea
+                                    Edit Idea
                                     </a>
                                 </li>
+                                @endcan
                                 <li><a href="#"
                                         class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Delete
                                         Idea</a></li>
-                                <li><a href="#"
-                                        class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark
+                                        <li><a href="#"
+                                            class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark
                                         as Spam</a></li>
-                            </ul>
-                        </div>
+                                    </ul>
+                                </div>
                     </div>
                     <div class="flex items-center md:hidden mt-4 md:mt-0">
                         <div class="bg-gray-100 text-center rounded-xl h-10 px-4 py-2 pr-8">
                             <div class="text-sm font-bold leading-none @if($hasVoted) text-blue @endif">
                                 {{ $votesCount }}</div>
-                            <div class="text-xxs font-semibold leading-none text-gray-400">Votes</div>
+                                <div class="text-xxs font-semibold leading-none text-gray-400">Votes</div>
                         </div>
 
                         @if ($hasVoted)
