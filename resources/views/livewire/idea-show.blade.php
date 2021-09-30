@@ -48,31 +48,52 @@
                             <ul x-cloak x-show.transition.origin.top.left="isOpen" @click.away="isOpen=false"
                                 @keydown.escape.window="isOpen=false" class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3                                md:ml-8
                         md:top-top-86 right-0 md:left-0">
-                                @can('update', $idea)
-                                <li><a href="#" @click.prevent="
-                            isOpen = false
-                            $dispatch('custom-show-edit-modal')
-                            " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
-                                        Edit Idea
+                               
+                            @can('update', $idea)
+                                
+                                <li>
+                                    <a href="#" @click.prevent="
+                                        isOpen = false
+                                        $dispatch('custom-show-edit-modal')
+                                        " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
+                                            Edit Idea
                                     </a>
                                 </li>
                                 @endcan
 
                                 @can('delete', $idea)
-                                <li><a href="#" @click.prevent="
-                        isOpen = false
-                        $dispatch('custom-show-delete-modal')
-                        " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
-                                        Delete Idea
+                                <li>
+                                    <a href="#" @click.prevent="
+                                        isOpen = false
+                                        $dispatch('custom-show-delete-modal')
+                                        " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
+                                            Delete Idea
                                     </a>
                                 </li>
                                 @endcan
-                                <li><a href="#" @click.prevent="
-                    isOpen = false
-                    $dispatch('custom-show-mark-idea-as-spam-modal')
-                    " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">Mark
-                                        as Spam</a>
+                                <li>
+                                    <a href="#" @click.prevent="
+                                        isOpen = false
+                                        $dispatch('custom-show-mark-idea-as-spam-modal')
+                                        " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
+                                            Mark as Spam
+                                    </a>
                                 </li>
+                                @admin
+                                    
+                                @if ($idea->spam_reports > 0)
+                                    
+                                <li>
+                                    <a href="#" @click.prevent="
+                                    isOpen = false
+                                    $dispatch('custom-show-mark-idea-as-not-spam-modal')
+                                    " class="hover:bg-gray-100 block transition duration-150 ease-in px-5 py-3">
+                                            Not Spam
+                                    </a>
+                                </li>
+                                
+                                @endif
+                                @endadmin
                             </ul>
                         </div>
                         @endauth
