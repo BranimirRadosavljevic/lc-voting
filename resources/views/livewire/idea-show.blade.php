@@ -49,8 +49,7 @@
                                 @keydown.escape.window="isOpen=false" class="absolute w-44 text-left font-semibold bg-white shadow-dialog rounded-xl z-10 py-3                                md:ml-8
                         md:top-top-86 right-0 md:left-0">
                                
-                            @can('update', $idea)
-                                
+                                @can('update', $idea)                                
                                 <li>
                                     <a href="#" @click.prevent="
                                         isOpen = false
