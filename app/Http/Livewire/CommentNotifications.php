@@ -2,6 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
+use App\Models\Idea;
+use Carbon\Carbon;
+use Illuminate\Http\Response;
+use Illuminate\Notifications\DatabaseNotification;
 use Livewire\Component;
 
 class CommentNotifications extends Component
@@ -41,6 +46,45 @@ class CommentNotifications extends Component
         $this->isLoading = false;
         
     } 
+
+    public function markAsRead($notificationId)
+    {
+        if (auth()->guest()) {
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
+        $notification = DatabaseNotification::findOrFail($notificationId);
+        // $notification->markAsRead();
+
+        $idea = Idea::find($notification->data['idea_id']);
+        $comment = Comment::find($notification->data['comment_id']);
+
+        $comments = $idea->comments()->pluck('id');
+        $indexOfComment = $comments->search($comment->id);
+
+        $page = (int) ($indexOfComment / $comment->getPerPage()) + 1;
+
+        session()->flash('scrollToComment', $comment->id);
+
+        return redirect()->route('idea.show', [
+            'idea' => $notification->data['idea_slug'],
+            'page' => $page
+        ]);
+
+       
+    }
+
+    public function markAllAsRead()
+    {
+        if (auth()->guest()) {
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
+        auth()->user()->unreadNotifications->markAsRead();
+
+        $this->getNotificationCount();
+        $this->getNotifications();
+    }
 
     public function render()
     {
