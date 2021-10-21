@@ -54,10 +54,25 @@ class CommentNotifications extends Component
         }
 
         $notification = DatabaseNotification::findOrFail($notificationId);
-        // $notification->markAsRead();
+        $notification->markAsRead();
 
+        $this->scrollToComment($notification);
+    }
+
+    public function scrollToComment($notification)
+    {
         $idea = Idea::find($notification->data['idea_id']);
+        if (!$idea) {
+            session()->flash('error_message', 'This idea no longer exists!');
+            return redirect()->route('idea.index');
+        }
+
+
         $comment = Comment::find($notification->data['comment_id']);
+        if (!$comment) {
+            session()->flash('error_message', 'This comment no longer exists!');
+            return redirect()->route('idea.index');
+        }
 
         $comments = $idea->comments()->pluck('id');
         $indexOfComment = $comments->search($comment->id);
@@ -69,10 +84,8 @@ class CommentNotifications extends Component
         return redirect()->route('idea.show', [
             'idea' => $notification->data['idea_slug'],
             'page' => $page
-        ]);
-
-       
-    }
+        ]);    
+    } 
 
     public function markAllAsRead()
     {
