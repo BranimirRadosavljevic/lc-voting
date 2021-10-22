@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laracasts Voting</title>
+    <title>{{ $title ?? 'Laracasts Voting' }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -46,15 +46,12 @@
                 @endauth
             </div>
             @endif
-            <a href="#">
-                @if (auth()->guest())
-                    <img src="https://www.gravatar.com/avatar/0000000000000000000000000000000?d=mp" alt="avatar"
+                @auth
+                    <a href="#">                
+                        <img src="{{ auth()->user()->getAvatar()}}" alt="avatar"
                         class="w-10 h-10 rounded-full">
-                @else
-                    <img src="{{ auth()->user()->getAvatar()}}" alt="avatar"
-                    class="w-10 h-10 rounded-full">
-                @endif
-            </a>
+                    </a>
+                @endauth
         </div>
     </header>
 
